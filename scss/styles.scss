@@ -1,0 +1,96 @@
+
+// red Color pallete
+$red50: #FFEBEE;
+$red100: #FFCDD2;
+$red200: #EF9A9A;
+$red300: #E57373;
+$red400: #EF5350;
+$red500: #F44336;
+$red600: #E53935;
+$red700: #D32F2F;
+$red800: #C62828;
+$red900: #B71C1C;
+
+
+// import scss
+
+@import "content";
+@import "animation";
+
+
+// Landing page body styling
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: $red50;
+}
+
+
+// Landing page styles
+.landing {
+	text-align: center;
+	margin-top: 180px;
+
+
+	& > * {
+		display: block;
+	}
+
+	& h1 {
+		color: $red500;
+		font-family: "Lato", sans-serif;
+		font-size: 4em;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 500;
+
+		margin: 20px;
+
+	}
+	& input {
+		margin: auto;
+
+		height: 45px;
+		width: 100%;
+
+		padding: 10px;
+
+		border: 1px solid $red200;
+
+		&:focus{
+			outline: none;
+			border: 1px solid $red400;
+		}
+	}
+
+	& .button {
+		margin-top: 22px;
+
+		& button {
+			margin: 5px;
+
+			background: white;
+			font-family: "Lato", sans-serif;
+			font-weight: 400;
+			letter-spacing: 0.03em;
+			font-size: 1.2em;
+			color: $red400;
+
+			&:focus {
+				outline: none;
+				border: 1px solid $red400;
+			}
+			&:hover {
+				border: 1px solid $red400;	
+			}
+		}
+
+		& #random {
+			min-width: 230px;
+			max-width: 230px;
+		}
+	} 
+}

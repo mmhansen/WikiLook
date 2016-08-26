@@ -1,0 +1,40 @@
+
+// content page styles
+.content {
+	text-align: left;
+
+
+	& > * {
+		display: inline-block;
+	}
+
+	& h1 {
+		color: $red500;
+		font-family: "Lato", sans-serif;
+		font-size: 2em;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 500;
+		vertical-align: bottom;
+
+	}
+	& input {
+
+		height: 45px;
+		width: 60%;
+
+		padding: 10px;
+		margin-left: 10px;
+
+		border: 1px solid $red200;
+
+		&:focus{
+			outline: none;
+			border: 1px solid $red400;
+		}
+	}
+
+	& .button {
+		display: none;
+	} 
+}
