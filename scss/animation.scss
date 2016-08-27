@@ -1,31 +1,11 @@
 
-.Feeling-1 {
- animation-name: fade-in-up;
-}
-.Feeling-2 {
-
-}
-.Feeling-3 {
-
-}
-.Feeling-4 {
-
-}
-.Feeling-5 {
-
-}
-.Feeling-6 {
-
-}
-.Feeling-7 {
-
-}
-.Feeling-8 {
-
-}
-.Feeling-9 {
-
-}
-.Feeling-10 {
-
+@keyframes fade-in-up {
+	0%{
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	100%{
+		opactiy: 1;
+		transform: translateY(0px);
+	}
 }

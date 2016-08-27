@@ -2,6 +2,7 @@
 ///////////////////////////////////////////////
 // Switch between Landing and Content Styles //
 ///////////////////////////////////////////////
+var test; 
 
 $(document).ready(function(){
   function contentCss(){
@@ -24,7 +25,8 @@ $(document).ready(function(){
     $('.search').val("")
 
     $('#header').addClass('landing');
-    $('#header').addClass('col-md-offset-3');    
+    $('#header').addClass('col-md-offset-3');  
+ 
   })
 });
 
@@ -59,30 +61,58 @@ $(document).ready(function(){
 ////////////////////////////////////////////////
 // Autocomplete List dropdown from search bar //
 ////////////////////////////////////////////////
-/*
+
 $(document).ready(function(){
 
-
-  var tags = []
-
-$('.search').on('input', function(){
-   
-    var URL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + $('.search').val() + '&limit=5&namespace=0&format=json'
-          
-    function getTags(data) {
-      tags = data[1];
-      // console.log(tags);
-      $('#autocomplete').autocomplete({ source: tags } );
-     }
+ var tags = [];
+  
+  $('.search').on('input', function(){
     
-  $.get(URL, getTags, "jsonp")
+    //do get request for tags
+    $.get('https://en.wikipedia.org/w/api.php?action=opensearch&search=' + $('.search').val() + '&limit=5&namespace=0&format=json', function( data ) {
+  
+      //make tags the correct array
+      tags = data[1];
+      //update source
+      $('.search').autocomplete( "option", { source: tags } );
+    //search to refresh autocomplete
+      $('.search').autocomplete( "search");
+      
+}, "jsonp" );
+    
   });
+  
+  $('.search').autocomplete({
+     source: tags,
+     messages: {
+       noResults: '',
+       results: function(){}
+     },
+    minChars: 0,
+    select: function (event, ui) {
 
+      var searchItem = $('.search').val();
 
+        if (searchItem == ""){
+          $(".search").blur();
+          $('.results').empty()
+          $(".results").append( "<div class='error'> <p>Type something before you search!</p></div>" );
 
+        } else {
+
+          $(".search").blur();
+          ajax(searchItem);
+
+        }
+
+      
+}
+
+});
 
 })
-*/
+
+
 
 ////////////////////////////
 // Display Search Results //
@@ -145,6 +175,8 @@ $(document).ready(function(){
 // active display on enter press
   $('.search').keypress(function (e) {
       if (e.which == '13') {
+
+
 
         var searchItem = $('.search').val();
 

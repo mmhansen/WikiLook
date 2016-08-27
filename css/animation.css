@@ -1,4 +1,9 @@
-.Feeling-1 {
-  animation-name: fade-in-up; }
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(50px); }
+  100% {
+    opactiy: 1;
+    transform: translateY(0px); } }
 
 /*# sourceMappingURL=animation.css.map */

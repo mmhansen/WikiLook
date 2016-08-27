@@ -16,7 +16,6 @@ $red900: #B71C1C;
 
 @import "content";
 @import "animation";
-@import "autocomplete";
 
 
 // Landing page body styling
@@ -96,10 +95,35 @@ body {
 	} 
 }
 
+// result styling
 .results div {
+
 	display: block;
 	background: white;
 	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
 	margin: 10px;
 	padding: 10px;
+	animation-name: fade-in-up; 
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+
+}
+
+
+// autocomplete
+
+.ui-autocomplete {
+    background: white;
+    list-style-type: none;
+    text-align: left;
+    width: 130px;
+    padding: 5px; 
+    margin: 0;
+    border: 2px solid ;
+    border-radius: 10px;
+}
+
+.ui-helper-hidden-accessible { 
+  display:none; 
 }
