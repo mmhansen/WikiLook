@@ -97,7 +97,7 @@ var searchItem;
 function showResults (callback) {
 
   for (var i = 0; i <= 9; i++) {
-    $(".results").append("<div id='result' class='result-list result-" + i + "'>" + "<span class='result-title title-" + i + "'></span>" + "<br>" +"<span class='result-snippet snippet-" + i + "'></span>" + "<br>" + "<span class='result-metadata metadata-" + i + "'></span>" + "</div>" );
+    $(".results").append("<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'><div id='result' class='result-list result-" + i + "'>" + "<span class='result-title title-" + i + "'></span>" + "<br>" +"<span class='result-snippet snippet-" + i + "'></span>" + "<br>" + "<span class='result-metadata metadata-" + i + "'></span>" + "</div> </div>" );
   }
 
   for (var m = 0; m <= 9; m++) {
@@ -179,12 +179,12 @@ $(document).ready(function(){
   // initial Display
   $('#random').text("I'm feeling Johnnie");
   
-  var imFeeling = ["Johnnie", "Homer", "Euclid", "Epictetus", "Descartes", "Quixote", "God", "Bach", "Aristotle", "Hungry"];
+  var imFeeling = ["Homer", "Euclid", "Epictetus", "Descartes", "Quixote", "God", "Bach", "Aristotle", "Hungry"];
   var randomNum;
   var selectedFeeling;
 
   function getRandom() {
-    randomNum = Math.floor(Math.random()*10);
+    randomNum = Math.floor(Math.random()*9);
     selectedFeeling = imFeeling[randomNum];
   }
   
@@ -227,3 +227,6 @@ prase to get whole article content;
 
 
 
+/////////////////////////////
+// Display pages on typing //
+/////////////////////////////
