@@ -16,6 +16,7 @@ $red900: #B71C1C;
 
 @import "content";
 @import "animation";
+@import "autocomplete";
 
 
 // Landing page body styling
@@ -93,4 +94,12 @@ body {
 			max-width: 230px;
 		}
 	} 
+}
+
+.results div {
+	display: block;
+	background: white;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+	margin: 10px;
+	padding: 10px;
 }

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AACA,UAAW;EACV,cAAc,EAAE,UAAU",
+"sources": ["../scss/animation.scss"],
 "names": [],
 "file": "animation.css"
 }

@@ -13,6 +13,8 @@
 		
 		<!--Jquery JS-->
 		<script src="js/jquery.js"></script>
+		<!--Jquery Autocomplete-->
+		<script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="   crossorigin="anonymous"></script>
 		<!--BootStrap JS-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<!--Main JS-->
@@ -27,7 +29,7 @@
 
 		    <h1>Wiki-Look</h1>
 		  
-		    <input type="text" id="search" placeholder="Type here for Virtue"/>
+		    <input type="text" id="autocomplete" class="search" placeholder="Type here for Virtue"/>
 		  
 		    <div class="button">
 		      <button id="Search" class="btn">Search</button>
@@ -37,8 +39,7 @@
 	  </div>
 	</div>
 <!--Search Content-->
-  <div class="content">
-  </div>
+  <div class="results"> </div>
 </div>
 	
 </body>
