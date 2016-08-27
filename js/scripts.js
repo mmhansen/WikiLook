@@ -3,13 +3,15 @@
 // Switch between Landing and Content Styles //
 ///////////////////////////////////////////////
 var test; 
-
-$(document).ready(function(){
-  function contentCss(){
+// declare contentCss for later use
+function contentCss(){
     $('#header').removeClass('landing');
     $('#header').removeClass('col-md-offset-3');
     $('#header').addClass('content');
   };
+
+
+$(document).ready(function(){
 
 
   $(".search").keypress(function(){
@@ -29,34 +31,6 @@ $(document).ready(function(){
  
   })
 });
-
-////////////////////////////////////////////
-// Animation for I'm feeling Lucky button //
-////////////////////////////////////////////
-
-$(document).ready(function(){
-  // initial Display
-  $('#random').text("I'm feeling Johnnie");
-  
-  var imFeeling = ["Johnnie", "Homer", "Euclid", "Epictetus", "Descartes", "Quixote", "God", "Bach", "Aristotle", "Hungry"];
-  var randomNum;
-  var selectedFeeling;
-
-  function getRandom() {
-    randomNum = Math.floor(Math.random()*10);
-    selectedFeeling = imFeeling[randomNum];
-  }
-  
-  $('#random').mouseenter(function(){
-    getRandom();
-    $('#random').text("I'm feeling "+selectedFeeling); 
-  });
-  
-  $('#random').mouseleave(function(){
-    $(this).text("I'm feeling Johnnie");
-  });
-
-})
 
 ////////////////////////////////////////////////
 // Autocomplete List dropdown from search bar //
@@ -123,7 +97,7 @@ var searchItem;
 function showResults (callback) {
 
   for (var i = 0; i <= 9; i++) {
-    $(".results").append("<div class='result-list result-" + i + "'>" + "<span class='result-title title-" + i + "'></span>" + "<br>" +"<span class='result-snippet snippet-" + i + "'></span>" + "<br>" + "<span class='result-metadata metadata-" + i + "'></span>" + "</div>" );
+    $(".results").append("<div id='result' class='result-list result-" + i + "'>" + "<span class='result-title title-" + i + "'></span>" + "<br>" +"<span class='result-snippet snippet-" + i + "'></span>" + "<br>" + "<span class='result-metadata metadata-" + i + "'></span>" + "</div>" );
   }
 
   for (var m = 0; m <= 9; m++) {
@@ -132,7 +106,7 @@ function showResults (callback) {
     var timestamp = callback.query.search[m].timestamp;
     timestamp = new Date(timestamp);
 
-    $(".title-" + m).html("<a href='https://en.wikipedia.org/wiki/" + url + "' target='_blank'>" + callback.query.search[m].title + "</a>");
+    $(".title-" + m).html("<a href='https://en.wikipedia.org/wiki/" + url + "' target='_blank' id='link-'" + m + ">" + callback.query.search[m].title + "</a>");
     $(".snippet-" + m).html(callback.query.search[m].snippet);
     $(".metadata-" + m).html((callback.query.search[m].size/1000).toFixed(0) + "kb (" + callback.query.search[m].wordcount + " words) - " + timestamp);
   }
@@ -197,9 +171,59 @@ $(document).ready(function(){
 })
 
 
+////////////////////////////////////////////
+// Animation for I'm feeling Lucky button //
+////////////////////////////////////////////
+
+$(document).ready(function(){
+  // initial Display
+  $('#random').text("I'm feeling Johnnie");
+  
+  var imFeeling = ["Johnnie", "Homer", "Euclid", "Epictetus", "Descartes", "Quixote", "God", "Bach", "Aristotle", "Hungry"];
+  var randomNum;
+  var selectedFeeling;
+
+  function getRandom() {
+    randomNum = Math.floor(Math.random()*10);
+    selectedFeeling = imFeeling[randomNum];
+  }
+  
+  $('#random').mouseenter(function(){
+    getRandom();
+    $('#random').text("I'm feeling "+selectedFeeling); 
+
+    $('#random').click(function(){
+
+     
+      contentCss();
+      ajax(selectedFeeling);
+
+    })
+  });
+  
+  $('#random').mouseleave(function(){
+    $(this).text("I'm feeling Johnnie");
+  });
+
+
+
+
+})
+
 
 ////////////////////////////////////
 // Display full page when clicked //
 ////////////////////////////////////
+
+/*
+<iframe src="link" height="100%">
+</iframe>
+
+
+https://en.wikipedia.org/w/api.php?action=parse&page=God
+prase to get whole article content;
+*/
+
+
 
 
